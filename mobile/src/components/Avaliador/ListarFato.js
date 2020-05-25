@@ -1,28 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { View, AsyncStorage, KeyboardAvoidingView, Platform, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-import api from '../services/api';
-
-import logo from '../assets/logo.jpg';
+import api from '../../services/api';
 
 
-export default function Login( { navigation }){
- 
 
 
-    //Após logado direcionar diretamente para a próxima tela
-    /*
-    useEffect(() => {
-        AsyncStorage.getItem('user').then(user => {
-            if(user){
-                navigation.navigate('List');
-            }
-        })
-    }, []);
-    
-*/
+export default function ListarFato( { navigation }){
+
     async function handleSubmit(){
-    
+        
+
         const { _id } = response.data;
 
         await AsyncStorage.setItem('user', _id);
@@ -34,7 +22,33 @@ export default function Login( { navigation }){
 
     return(
         <View style={styles.container}>
-            <Image source={logo} />          
+            <Text style={styles.label}>LISTAR FATO</Text>
+
+            <View style={styles.form}>
+                
+                <Text style={styles.label}>Selecione o fato observado </Text>
+                <TextInput
+                    style={styles.Input}
+                    secureTextEntry={true} 
+                    placeholder="Fato 01"
+                    placeholderTextColor= "#999"
+                    autoCorrect={false}    
+                    //value={senha}     
+                    //onChangeText={setSenha}  
+                                      
+
+                    
+                    />    
+
+                <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+                    <Text style={styles.buttonText}>Alterar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+                    <Text style={styles.buttonText}>Cancelar</Text>
+                </TouchableOpacity>
+                
+                
+            </View>
         </View>
 
     );
@@ -44,7 +58,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff'
     },
 
     form: {

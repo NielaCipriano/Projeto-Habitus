@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff'
     },
 
     form: {
@@ -121,5 +122,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
     }
+
 });
 

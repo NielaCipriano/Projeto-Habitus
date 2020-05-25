@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { View, AsyncStorage, KeyboardAvoidingView, Platform, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-import api from '../services/api';
+import api from '../../services/api';
+
+import logo from '../../assets/logo.jpg';
 
 
+export default function HomeAvaliador( { navigation }){
+ 
 
 
-export default function Login( { navigation }){
-
+    //Após logado direcionar diretamente para a próxima tela
+    /*
+    useEffect(() => {
+        AsyncStorage.getItem('user').then(user => {
+            if(user){
+                navigation.navigate('List');
+            }
+        })
+    }, []);
+    
+*/
     async function handleSubmit(){
-        
-
+    
         const { _id } = response.data;
 
         await AsyncStorage.setItem('user', _id);
@@ -22,37 +34,7 @@ export default function Login( { navigation }){
 
     return(
         <View style={styles.container}>
-            <Text style={styles.label}>CADASTRO</Text>
-
-
-            <Text style={styles.label}>Nome Avaliador</Text>
-            <Text style={styles.label}>E-mail avaliador</Text>
-            <View style={styles.form}>
-                
-
-                <Text style={styles.label}>Senha *</Text>
-                <TextInput
-                    style={styles.Input}
-                    secureTextEntry={true} 
-                    placeholder="Sua senha"
-                    placeholderTextColor= "#999"
-                    autoCorrect={false}    
-                    //value={senha}     
-                    //onChangeText={setSenha}  
-                                      
-
-                    
-                    />    
-
-                <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-                    <Text style={styles.buttonText}>Salvar</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-                    <Text style={styles.buttonText}>Cancelar</Text>
-                </TouchableOpacity>
-                
-                
-            </View>
+            <Image source={logo} />      
         </View>
 
     );
@@ -62,7 +44,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff'
     },
 
     form: {

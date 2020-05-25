@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, AsyncStorage, KeyboardAvoidingView, Platform, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-import api from '../services/api';
+import api from '../../services/api';
+
+import usuario from '../../assets/usuario.jpg';
 
 
-
-
-export default function Login( { navigation }){
+export default function CadastroAvaliador( { navigation }){
 
     async function handleSubmit(){
         
@@ -22,15 +22,22 @@ export default function Login( { navigation }){
 
     return(
         <View style={styles.container}>
-            <Text style={styles.label}>LISTAR FATO</Text>
+            <Text style={styles.label}>CADASTRO</Text>
 
+
+            <View style={styles.container}>
+                <Image source={usuario} />          
+            </View>
+            <Text style={styles.label}>Nome Completo</Text>
+            <Text style={styles.label}>E-mail</Text>
             <View style={styles.form}>
                 
-                <Text style={styles.label}>Selecione o fato observado *</Text>
+
+                <Text style={styles.label}>Senha *</Text>
                 <TextInput
                     style={styles.Input}
                     secureTextEntry={true} 
-                    placeholder="Fato 01"
+                    placeholder="Sua senha"
                     placeholderTextColor= "#999"
                     autoCorrect={false}    
                     //value={senha}     
@@ -41,7 +48,7 @@ export default function Login( { navigation }){
                     />    
 
                 <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-                    <Text style={styles.buttonText}>Alterar</Text>
+                    <Text style={styles.buttonText}>Salvar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={handleSubmit} style={styles.button}>
                     <Text style={styles.buttonText}>Cancelar</Text>
@@ -58,20 +65,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff'
     },
 
     form: {
         alignSelf: 'stretch',
         paddingHorizontal: 30,
-        marginTop: 50,
+        marginTop: 20,
     },
 
     label: {
         fontWeight: 'bold',
         color: '#444',
-        marginBottom: 8,
-        marginTop: 30
+        marginBottom: 10,
+        marginTop: 40
     },
 
     input: {

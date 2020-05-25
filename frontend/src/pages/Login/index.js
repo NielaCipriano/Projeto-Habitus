@@ -38,9 +38,10 @@ export default function Login({ history }){
         <label htmlFor="senha">SENHA*</label>
         <input 
           id="senha" 
-          type="senha" 
+          type="password" 
           placeholder="Sua senha"
           value = {senha}
+          secureTextEntry={true} 
           onChange={ event => setSenha(event.target.value) }
         />
 

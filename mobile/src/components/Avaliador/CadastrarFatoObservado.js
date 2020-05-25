@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, AsyncStorage, KeyboardAvoidingView, Platform, Image, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView  } from 'react-native';
 
-import api from '../services/api';
+import api from '../../services/api';
 
 
-export default function Login( { navigation }){
+export default function CadastrarFatoObservado( { navigation }){
   
 
 
-
- 
     async function handleSubmit(){
    
         const { _id } = response.data;
@@ -81,12 +79,14 @@ export default function Login( { navigation }){
                       placeholderTextColor= "#999"
                       autoCorrect={false}    
                     />  
+                     
                        <Text style={styles.label}>Conteúdos</Text>                     
                       <TextInput
                       style={styles.Input}
                       placeholder="Selecione os Conteúdos"
                       placeholderTextColor= "#999"
-                      autoCorrect={false}    
+                      autoCorrect={false} 
+                      
                     />     
                      <Text style={styles.label}>PAUTAS</Text>
 
@@ -136,7 +136,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#fff'
     },
 
     form: {

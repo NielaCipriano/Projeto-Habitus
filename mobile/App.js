@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, AsyncStorage, KeyboardAvoidingView, Platform, Image, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-import HomeAvaliador from './src/components/HomeAvaliador';
-import ListarFato from './src/components/ListarFato';
-import CadastrarFatoObservado from './src/components/CadastrarFatoObservado';
-import CadastroAvaliador from './src/components/CadastroAvaliador';
+import HomeAvaliador from './src/components/Avaliador/HomeAvaliador';
+import ListarFato from './src/components/Avaliador/ListarFato';
+import CadastrarFatoObservado from './src/components/Avaliador/CadastrarFatoObservado';
+import CadastroAvaliador from './src/components/Avaliador/CadastroAvaliador';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,7 +17,13 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator
+        drawerStyle={{
+          backgroundColor: '#fff',
+                 
+        }}
+        >
+
         <Drawer.Screen name="Home" component={HomeAvaliador} />
         <Drawer.Screen name="Login" component={Login} />
         <Drawer.Screen name="Cadastro" component={CadastroAvaliador} />
@@ -42,6 +48,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+
   
 });
 
