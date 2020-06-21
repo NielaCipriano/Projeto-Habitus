@@ -1,19 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import api from '../../services/api';
 
-
 export default function Perfil({ history }){
     const [titulo, setTitulo] = useState('');
  
-
     async function handleSubmit(event){
         event.preventDefault();
 
-        const response = await api.post('sessions', { titulo })
-
-        const { _id } = response.data;
-    
-        localStorage.setItem('user', _id);
+        api.get('perfil', { titulo_perfil: titulo }).catch(console.log(`Error: ${console.error}`));
 
         history.push('/inicial');
 
